@@ -1,5 +1,7 @@
 # DL_Backbone_Implementations
-
+We have solved the merge conflicts between testing and development.
+<<<<<<< HEAD
+Some changes need to be made.
 1) Create long‑lived branches
     main → production‑ready
     development → integration branch
@@ -36,7 +38,7 @@
         git fetch origin
         git rebase origin/testing   # or: git merge origin/testing
 
-        # push and open a PR to `testing`
+        # push and open a PR to `testing`, then merge it on Github
         git push -u origin feature/my-change
 
     B) Promote from testing → development
@@ -60,3 +62,6 @@
         git tag -a v1.0.0 -m "First stable release"
         git push origin v1.0.0
 
+=======
+
+>>>>>>> origin/development

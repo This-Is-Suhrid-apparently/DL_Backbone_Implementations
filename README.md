@@ -1,6 +1,5 @@
 # DL_Backbone_Implementations
 We have solved the merge conflicts between testing and development.
-<<<<<<< HEAD
 Some changes need to be made.
 1) Create long‑lived branches
     main → production‑ready
@@ -62,6 +61,3 @@ Some changes need to be made.
         git tag -a v1.0.0 -m "First stable release"
         git push origin v1.0.0
 
-=======
-
->>>>>>> origin/development

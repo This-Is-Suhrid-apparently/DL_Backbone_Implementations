@@ -36,7 +36,7 @@
         git fetch origin
         git rebase origin/testing   # or: git merge origin/testing
 
-        # push and open a PR to `testing`
+        # push and open a PR to `testing`, then merge it on Github
         git push -u origin feature/my-change
 
     B) Promote from testing → development

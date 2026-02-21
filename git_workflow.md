@@ -1,69 +1,43 @@
 # DL_Backbone_Implementations
-We have scolved the merge conflicts between testing and development.
-Some changes need to be made.
-1) Create long‑lived branches
-    main → production‑ready
-    development → integration branch
-    testing → staging/pre‑merge validation
-    # make sure main is current
-    git checkout main
-    git pull
-
-    # create development and push it (set upstream)
-    git checkout -b development
-    git push -u origin development
-
-    # create testing off development (so testing contains latest integration work)
-    git checkout development
-    git pull
-    git checkout -b testing
-    git push -u origin testing
 ____________________________________________________________________________________________________________________________________________________________________
 
-2) Day‑to‑day workflow
+1) Day‑to‑day workflow
 
-    A) Do work on feature branches (recommended)
-        Rather than committing directly to testing or development, create short‑lived feature branches so reviews are clean.
+    1. git checkout development
+    2. git pull origin development (sync changes from remote development branch to local development branch)
 
-        # start a feature from testing (or development if you prefer)
-        git checkout testing
-        git pull 
-        git checkout -b feature/my-change
+    3. Create a new feature branch : git checkout -b sd/testing/<feature-name if required>
+    4. Work and make changes inside sd/testing/<feature-name>
+    5. git add -A
+    6. git commit -m "Commit Message."
+    7. For first git push from this new branch, we need to set this branch's remote : git push -u origin sd/testing/<feature-name>, thereafter just git push
 
-        # edit files, then:
-        git add .
-        git commit -m "Implement X"
+    8. Go to Github merge PR from sd/testing/<feature-name> to developement:
+        a. base: development & compare: sd/testing/<feature-name>
+    
+    9. Go back to development and sync changes from origin/development: 
+        a. git checkout development
+        b. git pull origin development
 
-        # keep your branch up to date
-        git fetch origin
-        git rebase origin/testing   # or: git merge origin/testing
+    10. Delete remote testing branch: git push origin --delete sd/testing/<feature-name>
 
-        # push and open a PR to `testing`, then merge it on Github
-        git push -u origin feature/my-change
+    
+    11. Delete local testing branch: git branch -d sd/testing/<feature-name>
 
-    B) Promote from testing → development
-        Once a set of changes has passed your testing:
-                
-        git checkout development
-        git pull
-        git merge --no-ff testing   # keeps a merge commit for traceability
-        git push
+    12. Go to Github merge PR from development to main:
+        a. base: main & compare: development
 
-    C) Promote from development → main
-        When you’re ready for release:
-                
-        git checkout main
-        git pull
-        git merge --no-ff development
-        git push
+    13. Go back to main and sync changes from origin/main: 
+        a. git checkout main
+        b. git pull origin main
 
-        Optionally tag a release:
-        
-        git tag -a v1.0.0 -m "First stable release"
-        git push origin v1.0.0
+    14. Optional but common - Sync development with local main to stay in sync with main (important if main is changed individually)
+        a. git checkout development
+        b. git merge main (merge local main to development)
+        c. git push origin development (sync remote development to local development)
 ____________________________________________________________________________________________________________________________________________________________________
 
-3) Steps for making changes and tracking them:
+2) Steps for making changes and tracking them:
 
     1. Create new branch : git checkout -b branch_name (typical branch name - sd/branch_name)
     2. Make the changes
@@ -105,7 +79,7 @@ ________________________________________________________________________________
     exit() to get out of Python
 ____________________________________________________________________________________________________________________________________________________________________
 
-4) To fork a reserach repo and then clone (the fork) it for personal changes then finalize changes and send PR to the original author:
+3) To fork a reserach repo and then clone (the fork) it for personal changes then finalize changes and send PR to the original author:
 
 1. Terms:
     a. origin = my own fork on Github. origin is my remote repo 
@@ -160,7 +134,7 @@ ________________________________________________________________________________
     c. Then push updated test_branch to remote: git push origin test_branch
 ____________________________________________________________________________________________________________________________________________________________________
 
-5) Set remote origin and remote upstream
+4) Set remote origin and remote upstream
     a. git remote add upstream github.com/ORIGINAL_OWNER/REPO.git
     b. git remote add origin github.com/Me/REPO.git
     c. Verify using git remote -v
@@ -172,12 +146,17 @@ ________________________________________________________________________________
         e.2. git remote add origin github.com/Me/new_REPO.git
 
 ____________________________________________________________________________________________________________________________________________________________________
+
 # General git commands:
 
     1. Check if git is tracking a specific file : git check-ignore -v (filename)
-    2. See branch statuses: git branch -vv
+    2. See branch statuses: 
+        a. git branch -vv (check if branch has an upstream and what it is)
+        b. git config --get branch.<branch-name>.remote and git config --get branch.<branch-name>.merge
     3. git push [-u] <remote> <local-branch> example : git push -u origin test_branch
     4. git merge <remote>/<branch> example : git merge origin/main OR git merge upstream/main
     5. get fetch <remote> example : get fetch origin OR git fetch upstream
     6. git config --get branch.main.remote | ANSWER : origin
     7. git config --get branch.main.merge  | ANSWER : refs/heads/main
+
+____________________________________________________________________________________________________________________________________________________________________

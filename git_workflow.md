@@ -158,12 +158,26 @@ ________________________________________________________________________________
     a. git checkout test_branch
     b. git merge main (OR directly merge from my remote main : git merge origin/main)
     c. Then push updated test_branch to remote: git push origin test_branch
+____________________________________________________________________________________________________________________________________________________________________
 
+5) Set remote origin and remote upstream
+    a. git remote add upstream github.com/ORIGINAL_OWNER/REPO.git
+    b. git remote add origin github.com/Me/REPO.git
+    c. Verify using git remote -v
+    d. In the case where repo was cloned from somewhere and I want to change the origin:
+        d.1. check through git remote -v
+        d.2. Change the URL : git remote set-url origin github.com/Me/new_REPO.git
+    e. Remove and Re-add:
+        e.1. git remote remove origin
+        e.2. git remote add origin github.com/Me/new_REPO.git
 
 ____________________________________________________________________________________________________________________________________________________________________
-5) General git commands:
+# General git commands:
 
     1. Check if git is tracking a specific file : git check-ignore -v (filename)
     2. See branch statuses: git branch -vv
-    3. git push [-u] <remote> <local-branch>
-    
+    3. git push [-u] <remote> <local-branch> example : git push -u origin test_branch
+    4. git merge <remote>/<branch> example : git merge origin/main OR git merge upstream/main
+    5. get fetch <remote> example : get fetch origin OR git fetch upstream
+    6. git config --get branch.main.remote | ANSWER : origin
+    7. git config --get branch.main.merge  | ANSWER : refs/heads/main

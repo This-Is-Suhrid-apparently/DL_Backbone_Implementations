@@ -1,7 +1,7 @@
 # DL_Backbone_Implementations
 ____________________________________________________________________________________________________________________________________________________________________
 
-1) Day‑to‑day workflow
+1) Day‑to‑day workflow (Do not make any changes before creating a test branch!!)
 
     1. git checkout development
     2. git pull origin development (sync changes from remote development branch to local development branch)
@@ -20,7 +20,6 @@ ________________________________________________________________________________
         b. git pull origin development
 
     10. Delete remote testing branch: git push origin --delete sd/testing/<feature-name>
-
     
     11. Delete local testing branch: git branch -d sd/testing/<feature-name>
 
@@ -161,4 +160,6 @@ ________________________________________________________________________________
 
 ____________________________________________________________________________________________________________________________________________________________________
 
-Other Stuff ...
+# General conda commands:
+
+    1. Checking if a conda env has a certain package : conda list -n <env_name> <package_name> example : conda list -n HF_env transformers

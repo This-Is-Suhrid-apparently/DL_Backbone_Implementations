@@ -163,3 +163,9 @@ ________________________________________________________________________________
 # General conda commands:
 
     1. Checking if a conda env has a certain package : conda list -n <env_name> <package_name> example : conda list -n HF_env transformers
+
+_____________________________________________________________________________________________________________________________________________________________________
+
+# GPU related tips:
+
+    1. watch -n 1 nvidia-smi in the terminal to see GPU utilization.

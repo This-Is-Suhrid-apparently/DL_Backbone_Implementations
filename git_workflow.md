@@ -56,7 +56,7 @@ ________________________________________________________________________________
         Click on New pull request
         Specify source branch, target branch (into master in this case). Populate comments about the pull request itself. Add reviewers if appropriate, etc
         Once the pull request is created, it can be evaluated (by the reviewers) and then comments can be issued prior to merging
-        After the reviewrs approve, click on Complete (select the option which automatically deletes the branch after mergingin remote)
+        After the reviewers approve, click on Complete (select the option which automatically deletes the branch after mergingin remote)
         This completes the process of merging the (source) branch to the (target) master
     8. Sync the changes in the local and remote repositories:
         Navigate to VSCode terminal and enter: git fetch
@@ -82,7 +82,7 @@ ________________________________________________________________________________
 
 1. Terms:
     a. origin = my own fork on Github. origin is my remote repo 
-    b. upstream = orginal remote repo on Github. This is the repo that I forked and then cloned the fork to use locally. (Generally cannot push to upstream without permissions)
+    b. upstream = original remote repo on Github. This is the repo that I forked and then cloned the fork to use locally. (Generally cannot push to upstream without permissions)
     c. main = my stable branch. main is my local branch and the changes are pushed to its corresponding remote version called origin/main
     d. test_branch = my (feature/experiment) branch other than main. Its changes are pushed to its corresponding remote version called origin/test_branch
 
@@ -99,7 +99,7 @@ ________________________________________________________________________________
     a. git checkout main
     b. git fetch upstream
     c. git merge upstream/main (i.e merge upstream's main branch with my local main branch)
-    d. git push main (i.e push changes in main (by merging upstream/main to local main) to origin/main (which is the remote version of my local main in my forked repo))
+    d. git push main (i.e push changes in main (by merging upstream/main to local main) to origin/main (which is the remote version of my local main in my forked repo)). TLDR - Bring in changes from the upstream to the local repo and then push changes from the local repo to the remote version of my local repo.
 
 5. Create testing branch and make changes:
     a. git checkout -b test_branch
@@ -138,7 +138,7 @@ ________________________________________________________________________________
     b. git remote add origin github.com/Me/REPO.git
     c. Verify using git remote -v
     d. In the case where repo was cloned from somewhere and I want to change the origin:
-        d.1. check through git remote -v
+        d.1. check through : git remote -v
         d.2. Change the URL : git remote set-url origin github.com/Me/new_REPO.git
     e. Remove and Re-add:
         e.1. git remote remove origin
